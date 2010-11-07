@@ -12,3 +12,4 @@ local_settings.py
 *.svn/*.*
 .DS_Store
 settings_local.py
+*.db
