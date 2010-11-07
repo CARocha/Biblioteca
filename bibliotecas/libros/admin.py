@@ -16,6 +16,10 @@ class LibroAdmin(admin.ModelAdmin):
     search_fields = ['titulo', 'autor', 'editorial']
     date_hierarchy = 'fecha_pub'
     
+    class Media:
+        js = ['../archivos/js/tiny_mce/tiny_mce.js',
+              '../archivos/js/editores/textareas.js',]
+    
 admin.site.register(Libros, LibroAdmin)
 admin.site.register(Tematica)
 admin.site.register(Editorial)
