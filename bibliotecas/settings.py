@@ -1,6 +1,6 @@
 # Django settings for bibliotecas project.
 
-from local_settings.py import *
+from local_settings import *
 
 SITE_ID = 1
 
@@ -71,4 +71,6 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'lugar',
+    'bibliotecas.libros',  
 )
