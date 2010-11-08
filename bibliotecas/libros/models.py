@@ -4,9 +4,7 @@ from django.db import models
 from thumbs import ImageWithThumbsField
 from lugar.models import *
 from django.conf import settings
-#from south.modelsinspector import add_introspection_rules
-from south.modelsinspector import add_introspection_rules
-add_introspection_rules([], ["^libros\.thumbs\.ImageWithThumbsField"]) 
+from bibliotecas.utils import get_file_path 
 
 # Create your models here.
 
@@ -54,9 +52,11 @@ class Organizacion(models.Model):
     direccion = models.TextField()
     correo_electronico = models.EmailField()
     departamento = models.ForeignKey(Departamento)
-    logo = ImageWithThumbsField(upload_to='attachments/logos', 
+    logo = ImageWithThumbsField(upload_to=get_file_path, 
                                 sizes=((150,150),(250,250)), null=True, blank=True)
     sitio_web = models.URLField(null=True, blank=True)
+
+    fileDir = 'attachments/logos'
     
     def __unicode__(self):
         return self.nombre
@@ -85,14 +85,18 @@ class Libro(models.Model):
     descritores = models.TextField(null=True, blank=True)
     nota_descriptiva = models.TextField(null=True, blank=True)
     resumen = models.TextField(null=True, blank=True)
-    portada = ImageWithThumbsField(upload_to='attachments/portadas', 
+    portada = ImageWithThumbsField(upload_to=get_file_path, 
                                    sizes=((150,150),(250,250)), null=True, blank=True)
     tipo = models.ForeignKey(TipoDocumento)
+
+    fileDir = 'attachments/portadas'
     
 class Archivos(models.Model):
     nombre = models.CharField(max_length=200)
-    archivo = models.FileField(upload_to='attachments/archivos', null=True, blank=True)
+    archivo = models.FileField(upload_to=get_file_path, null=True, blank=True)
     libro = models.ForeignKey(Libro)
+
+    fileDir = 'attachments/archivos'    
     
     def __unicode__(self):
         return self.nombre
