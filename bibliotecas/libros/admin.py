@@ -20,7 +20,7 @@ class LibroAdmin(admin.ModelAdmin):
         js = ['../archivos/js/tiny_mce/tiny_mce.js',
               '../archivos/js/editores/textareas.js',]
     
-admin.site.register(Libros, LibroAdmin)
+admin.site.register(Libro, LibroAdmin)
 admin.site.register(Tematica)
 admin.site.register(Editorial)
 admin.site.register(TipoDocumento)

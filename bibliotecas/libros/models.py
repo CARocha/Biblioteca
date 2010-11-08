@@ -4,6 +4,9 @@ from django.db import models
 from thumbs import ImageWithThumbsField
 from lugar.models import *
 from django.conf import settings
+#from south.modelsinspector import add_introspection_rules
+from south.modelsinspector import add_introspection_rules
+add_introspection_rules([], ["^libros\.thumbs\.ImageWithThumbsField"]) 
 
 # Create your models here.
 
@@ -51,7 +54,8 @@ class Organizacion(models.Model):
     direccion = models.TextField()
     correo_electronico = models.EmailField()
     departamento = models.ForeignKey(Departamento)
-    logo = ImageWithThumbsField(upload_to='attachments/logos')
+    logo = ImageWithThumbsField(upload_to='attachments/logos', 
+                                sizes=((150,150),(250,250)), null=True, blank=True)
     sitio_web = models.URLField(null=True, blank=True)
     
     def __unicode__(self):
@@ -61,7 +65,7 @@ class Organizacion(models.Model):
         verbose_name = "Organización"
         verbose_name_plural = "Organizaciones"
 
-class Libros(models.Model):
+class Libro(models.Model):
     ''' clase que contendra los libros de las
         distintas organizaciones que utilicen
         esta app
@@ -88,12 +92,11 @@ class Libros(models.Model):
 class Archivos(models.Model):
     nombre = models.CharField(max_length=200)
     archivo = models.FileField(upload_to='attachments/archivos', null=True, blank=True)
-    libro = models.ForeignKey(Libros)
+    libro = models.ForeignKey(Libro)
     
     def __unicode__(self):
         return self.nombre
         
     class Meta:
         verbose_name_plural = "Subir Archivos"
-    
-    
+ 
