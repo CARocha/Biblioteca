@@ -16,6 +16,8 @@ urlpatterns = patterns('',
     (r'^$', 'libros.views.index'),
     (r'^libros/', include('libros.urls')),
     #(r'^busqueda/', include('haystack.urls')),
+    (r'^accounts/login/$', 'django.contrib.auth.views.login'),
+    (r'^accounts/logout/$', 'libros.views.logout_page'),
     (r'^accounts/', include('registration.backends.default.urls')),
 )
 

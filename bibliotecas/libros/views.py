@@ -5,6 +5,8 @@ from django.template import RequestContext
 from django.shortcuts import render_to_response, get_object_or_404
 from models import *
 from libros.forms import SearchForm
+from django.contrib.auth import logout
+from django.http import HttpResponseRedirect
 
 from django import forms
 from django.shortcuts import render_to_response
@@ -13,6 +15,9 @@ from django.db.models import Q
 from libros.models import *
 import re
 
+def logout_page(request):
+  logout(request)
+  return HttpResponseRedirect('/')
 
 def index(request):
     ''' Vista que devolvera muchas de las salidas

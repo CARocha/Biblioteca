@@ -12,6 +12,10 @@
                 $('div#register').click(function(){
                     jQuery.facebox({ ajax: '/accounts/register/' });
                 });
+                
+                $('div#login').click(function(){
+                    jQuery.facebox({ ajax: '/accounts/login/' });
+                });
             });
         </script>
         <!--[if IE]>
@@ -35,22 +39,59 @@
                     <div class="menu_entry" onclick="window.location.href='/';">
                         <span class="primary">Inicio</span><br>
                         <span class="secondary">Entrada al Sistema</span>
-                    </div>                    
+                    </div>
+                    {% if user.is_authenticated %}
+                    {%comment%}                    
                     <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
                     <div class="menu_entry" id="register">
                         <span class="primary">Registrarse</span><br>
                         <span class="secondary">Registrarse en el sistema</span>
                     </div>
+                    {%endcomment%}
+                    {% else%}
                     <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
-                    <div class="menu_entry" onclick="window.location.href='/login/';">
+                    <div class="menu_entry" id="register">
+                        <span class="primary">Registrarse</span><br>
+                        <span class="secondary">Registrarse en el sistema</span>
+                    </div>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    {%comment%}
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" id="login">
                         <span class="primary">Entrar</span><br>
                         <span class="secondary">Iniciar Sesi&oacute;n</span>
                     </div>
+                    {%endcomment%}
+                    {% else%}
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" id="login">
+                        <span class="primary">Entrar</span><br>
+                        <span class="secondary">Iniciar Sesi&oacute;n</span>
+                    </div>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/accounts/logout';">
+                        <span class="primary">Salir</span><br>
+                        <span class="secondary">Salir Sesi&oacute;n</span>
+                    </div>
+                    {% else%}
+                    {%comment%}
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/accounts/logout';">
+                        <span class="primary">Salir</span><br>
+                        <span class="secondary">Salir Sesi&oacute;n</span>
+                    </div>
+                    {%endcomment%}
+                    {% endif %}
+                    {% if user.is_authenticated %}
                     <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
                     <div class="menu_entry" onclick="window.location.href='/admin/';">
                         <span class="primary">Administraci&oacute;n</span><br>
                         <span class="secondary">Administrar sistema</span>
                     </div>
+                    {% endif %}
                     <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
                     <div class="menu_entry" onclick="window.location.href='/ayuda/';">
                         <span class="primary">Ayuda</span><br>
