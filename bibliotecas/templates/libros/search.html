@@ -1,38 +1,55 @@
-<form id="searchform" action="." method="GET">
-			<input type="text" id="searchfield" name="q" value="{{ query|escape }}">
-			<input type="submit" value="Consultar">
-</form>
+{% extends "base.html" %}
 
-{% if query %}
-				Se encontraron {{c}} resultados para: "{{ query|escape }}":
-		
-   </div>
-		<div id="resultado">
-			{% if results %}
-				{% for contacto in results %}
-				<div class="contenido_detalle"> 
-						<h1><a href="/contactos/ver/{{contacto.id}}/" rel="facebox">Nombre: {{ contacto.nombres }} {{ contacto.apellidos }}</a></h1>
-						{% if contacto.tel1 %}
-						<b>Telefono 1:</b> {{ contacto.tel1 }} <br>
-						{% endif %}
-						{% if contacto.cel1 %}
-                        <b>Celular 1:</b> {{ contacto.cel1 }}<br>
-                        {% endif %}
-						{% if contacto.telefono2%}
-						<b>Telefono 2:</b> {{ contacto.tel2 }} <br>
-						{%endif%}
-						{% if contacto.organizacion%}
-						<b>Organizacion:</b> {{ contacto.organizacion }}<br>
-						{%endif%}
-						{% if contacto.email1%}
-						<b>Correo Electrónico:</b> {{contacto.email1}}<br>
-						{%endif%}
-						<div class="leermas"><a href="/contactos/ver/{{contacto.id}}/" rel="facebox"><img src="{{MEDIA_URL}}imagen/mas.png"></a></div>
-           
-				</div>
-				{% endfor %}
-			{% else %} 
-					<p>Contacto NO encontrado</p> 
-			{% endif %} 
-		{% endif %}
+{% block contenido %}
+<div class="banner">    
+    <br><br>
+    <div class="busqueda_search_form">
+        <form id="searchform" action="/libros/busqueda/" method="GET">
+            <input type="text" id="searchfield" name="q" value="{{query|escape}}">
+            <input type="submit" id="submit_button" value="&nbsp;">
+        </form>
+    </div>
+</div>
+<div class="busqueda_resultados">
+    {% if query %}    
+    <div class="busqueda_encontrados">Se encontraron <b>{{c}}</b> resultados para: "{{query|escape}}":</div>
+    {% if results %}
+    {% for libros in results %}
+    <div class="contenido_detalle">
+        <div class="tipo">
+            <img src="/files/img/libro.png" alt="tipo material">
+        </div>
+        <div class="busqueda_datos_libro">
+            <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
+            {% if libros.titulo %}
+            <b>Author:</b> {{ libros.autor }}<br>
+            {% endif %}
+        </div>
+        <div class="busqueda_libro_portada">
+            <img src="/files/img/thumb.png" alt="portada libro">
+        </div>
+        <div class="clean"></div>
+    </div>
+    <div class="contenido_detalle">
+        <div class="tipo">
+            <img src="/files/img/video.png" alt="tipo material">
+        </div>
+        <div class="busqueda_datos_libro">            
+            <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
+            {% if libros.titulo %}
+            <b>Author:</b> {{ libros.autor }}<br>
+            {% endif %}            
+        </div>
+        <div class="busqueda_libro_portada">
+            <img src="/files/img/thumb.png" alt="portada libro">
+        </div>
+        <div class="clean"></div>
+    </div>
+    {% endfor %}
+    {% else %}
+    <p>No hay resultados!!</p>
+    {% endif %}
+    {% endif %}
+</div>
+{% endblock %}
 

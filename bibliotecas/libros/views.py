@@ -53,7 +53,7 @@ def search(request):
     else:
         results = []
     dicc = {"results": results, "query": query, "c": len(results)}
-    return render_to_response("index.html", dicc,
+    return render_to_response("libros/search.html", dicc,
                                context_instance = RequestContext(request))
 
 

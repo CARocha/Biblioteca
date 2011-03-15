@@ -1,14 +1,236 @@
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-}
-
-/* THE BODY*/
-
 body {
-    background: url(../img/bck.jpg);
-
+    background: #eff0f1;
+    padding: 0;
+    margin: 0;
+    font-family: "Arial", sans-serif;
 }
-
-
+#wrapper{
+    width: 960px;
+    margin: 0 auto;
+    background: #fff;
+}
+#header{
+    background: #2e3436;
+    height: 60px;
+}
+#content{
+    padding-bottom: 15px;
+}
+#footer{
+    color: #7b7b7b;
+    font-size: 13px;
+    background-color: #eff0f1;
+    border-top: 1px #bababa solid;
+    padding-bottom: 20px;
+    padding-top: 15px;
+}
+#footer a{
+    font-weight: bold;
+    text-decoration: none;
+    color: #7b7b7b;
+}
+a{
+    outline: none;
+}
+img{
+    border: none;
+}
+.logo{
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 205px;
+    height: 60px;
+}
+.clean{
+    clear: both;
+}
+.menu{
+    float: left;
+    width: 735px;
+    margin-left: 10px;
+}
+.menu_entry{
+    float: left;
+    color: #89999b;
+    cursor: pointer;
+    height: 60px;
+    padding: 10px 12px 0;
+    position: relative;
+    z-index: 2;
+}
+.menu_entry .primary{
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 16px;    
+}
+.menu_entry .secondary{
+    font-size: 11px;    
+}
+.menu_entry:hover{
+    color: #fff;
+    background: #272c2e;
+}
+.separador{
+    float: left;    
+}
+.banner{            
+    min-height: 146px;
+    border-top: 1px #fff solid;
+    background: url(/files/img/banner.png) repeat-x;
+}
+.girls{
+    float: left;
+    position: relative;
+    z-index: 1;
+    margin-top: -9px;
+}
+.index_bar{
+    float: left;
+    margin-left: 30px;
+    margin-top: 10px;    
+}
+#searchfield{
+    background: url(/files/img/search_input.png) no-repeat;
+    border: none;
+    height: 46px;
+    width: 190px;
+    padding-left: 25px;
+    padding-right: 15px;
+    font-size: 22px;
+    color: #babdb6;
+    float: left;
+}
+#searchfield:focus {
+    outline: none;
+}
+#submit_button{
+    background: url(/files/img/submit_button.png) no-repeat;
+    border: none;
+    height: 47px;
+    width: 47px;
+    margin-left: -4px;
+    float: left;
+}
+.ultimo_libro{
+    margin-top: 18px;
+}
+span.book_title{
+    font-size: 22px;
+    color: #383a3e;
+    font-weight: bold;
+}
+.last_book{
+    margin-top: 15px;    
+}
+.book_portada{
+    float: left;
+    width: 126px;
+    height: 163px;
+    -moz-box-shadow: 0px 1px 3px #2e3436;
+    -webkit-box-shadow: 0px 3px 8px #2e3436;
+    box-shadow: 0px 3px 8px #2e3436;
+}
+.book_data{
+    float: left;
+    height: 163px;
+    width: 120px;
+    margin-left: 10px;
+    margin-top: 6px;
+}
+.book_name{
+    font-size: 15px;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+.book_name:hover{
+    text-decoration: underline;
+}
+.book_author{
+    font-size: 12px;
+    color: #505050;
+}
+.index_content{
+    margin-top: 10px;
+}
+.index_intro_text, .index_bibliotecas{
+    float: left;
+    background: url(/files/img/index_back.png) no-repeat bottom;
+    width: 462px;
+    height: 185px;
+    margin-left: 12px;
+}
+.index_content_title{
+    font-size: 22px;
+    color: #6897a7;
+}
+.breve_descripcion{
+    margin: 22px 10px 0 10px;
+    font-size: 12px;
+    color: #000;
+}
+.biblios{
+    margin: 30px 10px 0 10px;
+}
+.biblioteca{
+    float: left;
+}
+.biblioteca span{
+    font-size: 13px;
+    color: #000;
+    text-align: center
+}
+.biblioteca .cantidad_libros{
+    font-size: 16px;
+    color: #000;
+    font-weight: bold;    
+}
+.separador_biblio{
+    float: left;
+    margin: -8px 8px 0;
+}
+.busqueda_search_form{
+    margin-left: 300px;
+}
+.busqueda_resultados{
+    
+}
+.busqueda_encontrados{
+    margin: 10px;
+    color: #8b9084;
+    font-size: 15px;
+}
+.contenido_detalle{
+    border-top: 1px #d3d7cf solid;
+    border-bottom: 1px #d3d7cf solid;
+    width: 100%;
+    margin-top: 10px;    
+}
+.busqueda_titulo_libro{
+    font-size: 15px;
+    color: #069;
+    font-weight: bold;
+    text-decoration: none;    
+}
+.busqueda_titulo_libro:hover{
+    text-decoration: underline;
+}
+.tipo{
+    float: left;    
+}
+.busqueda_datos_libro{
+    float: left;
+    margin-left: 10px;
+    margin-top: 12px;
+    font-size: 13px;
+    line-height: 18px;
+    color: #505050;
+}
+.busqueda_datos_libro b{    
+    font-size: 13px;
+}
+.busqueda_libro_portada{
+    float: right;
+    margin: 3px;
+}

@@ -1,46 +1,62 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-    <title>{%block title%}Bibliotecas{%endblock%}</title>
-    <link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" media="screen" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-       
-
-<!--[if lt IE 7.]>
-<script defer type="text/javascript" src="js/pngfix.js"></script>
-<![endif]-->
-
-{%block extra_header%}
-{%endblock%}
-</head>
-<body>
-
-<div id="header">
-    <img src="/media/imagen/sin.jpg" width=570 height=78 alt="biblioteca"/>       
-</div>
-
-<div id="wrapper">
-
-<div id="menu">
-    <ul class="nav-menu">
-        <li> <a href="/">Inicio</a> </li>
-        <li> <a href="#">Buscar</a> </li>
-        <li> <a href="/admin">Administración</a> </li>
-    </ul>
-</div>
-		
-            {% block contenido %}
-                <p>
-                    aca va unas fotos quizas o algo explicativo
-                </p>
-            {% endblock %}
-
-<div id="footer">
-    <p><a href="http://www.simas.org.ni">SIMAS 2009</a></p>
-</div>
-
-</div> <!-- End #wrapper -->
-</body>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>{%block title%}Bibliotecas{%endblock%}</title>
+        <link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" media="screen" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        <!--[if lt IE 7.]>
+        <script defer type="text/javascript" src="js/pngfix.js"></script>
+        <![endif]-->
+        {%block extra_header%}
+        {%endblock%}
+    </head>
+    <body>
+        <div id="wrapper">
+            <div id="header">
+                <div class="logo">
+                    <a href="/"><img src="/files/img/logo.png" alt="Biblioteca"></a>
+                </div>
+                <div class="menu">
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/';">
+                        <span class="primary">Inicio</span><br>
+                        <span class="secondary">Entrada al Sistema</span>
+                    </div>                    
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/registrarse/';">
+                        <span class="primary">Registrarse</span><br>
+                        <span class="secondary">Registrarse en el sistema</span>
+                    </div>
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/login/';">
+                        <span class="primary">Entrar</span><br>
+                        <span class="secondary">Iniciar Sesi&oacute;n</span>
+                    </div>
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/admin/';">
+                        <span class="primary">Administraci&oacute;n</span><br>
+                        <span class="secondary">Administrar sistema</span>
+                    </div>
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                    <div class="menu_entry" onclick="window.location.href='/ayuda/';">
+                        <span class="primary">Ayuda</span><br>
+                        <span class="secondary">Como usar el sistema</span>
+                    </div>                                        
+                    <img src="/files/img/separator.png" alt="separador" height="60" width="1" class="separador">
+                </div>
+                <div class="clean"></div>
+            </div>            
+            <div id="content">
+                {% block contenido %}
+                
+                {% endblock %}
+                <div class="clean"></div>
+            </div>
+            <div id="footer">
+                Desarrollado por <a href="http://www.simas.org.ni">SIMAS</a>
+            </div>
+        </div> 
+    </body>
 </html>
 

@@ -1,8 +1,10 @@
 # Django settings for bibliotecas project.
 
 from local_settings import *
+import os
 
 SITE_ID = 1
+PROJECT_DIR = os.path.dirname(__file__)
 
 # If you set this to False, Django will make some optimizations so as not
 # to load the internationalization machinery.
@@ -19,7 +21,7 @@ MEDIA_ROOT = PROJECT_DIR + '/media'
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash if there is a path component (optional in other cases).
 # Examples: "http://media.lawrence.com", "http://example.com/media/"
-MEDIA_URL = '/archivos/'
+MEDIA_URL = '/files/'
 
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
 # trailing slash.

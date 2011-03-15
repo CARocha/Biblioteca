@@ -13,13 +13,6 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    # Example:
-    # (r'^bibliotecas/', include('bibliotecas.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
     (r'^admin/', include(admin.site.urls)),
     (r'^$', 'libros.views.index'),
     (r'^libros/', include('libros.urls')),
@@ -28,6 +21,6 @@ urlpatterns = patterns('',
 
 if settings.DEBUG:
     urlpatterns += patterns('',
-                            (r'^archivos/(.*)$', 'django.views.static.serve',
+                            (r'^files/(.*)$', 'django.views.static.serve',
                              {'document_root': os_path.join(settings.MEDIA_ROOT)}),
                            )

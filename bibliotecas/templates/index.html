@@ -1,32 +1,93 @@
 {% extends "base.html" %}
 
+{% block extra_header %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#searchfield').val('Buscar');
+        $('#searchfield').click(function(){
+            if($(this).val()=='Buscar'){$(this).val('')}
+        });
+        $('#searchfield').focus(function(){
+            if($(this).val()=='Buscar'){$(this).val('')}
+        });
+        $('#searchfield').blur(function(){
+            if($(this).val()==''){$(this).val('Buscar')}
+        });
+    }); 
+</script>
+{% endblock %}
+
 {% block contenido %}
-
-<form id="searchform" action="/libros/busqueda/" method="GET">
-			<input type="text" id="searchfield" name="q" value="{{ query|escape }}">
-			<input type="submit" value="query">
-</form>
-
-{% if query %}
-				Se encontraron {{c}} resultados para: "{{ query|escape }}":
-		
-   </div>
-		<div id="resultado">
-			{% if results %}
-				{% for libros in results %}
-				<div class="contenido_detalle"> 
-						<h1><a href="/libros/ver/{{libros.id}}/" rel="facebox">{{ libros.titulo }} </a></h1>
-						{% if libros.titulo %}
-						<b>Libros:</b> {{ libros.titulo }} <br>
-						{% endif %}
-						<div class="leermas"><a href="/libros/ver/{{libros.id}}/" rel="facebox"><img src="{{MEDIA_URL}}imagen/mas.png"></a></div>
-           
-				</div>
-				{% endfor %}
-			{% else %} 
-					<p>Libros NO encontrado</p> 
-			{% endif %} 
-		{% endif %}
-
-
+<div class="banner">
+    <div class="girls">
+        <img src="/files/img/girls.jpg" alt="girls">
+    </div>
+    <div class="index_bar">
+        <form id="searchform" action="/libros/busqueda/" method="GET">
+            <input type="text" id="searchfield" name="q" value="{{ query|escape }}">
+            <input type="submit" id="submit_button" value="&nbsp;">
+        </form>
+        <div class="clean"></div>
+        <div class="ultimo_libro">            
+            <span class="book_title">Ultimo libro agregado</span>
+            <div class="last_book">
+                <div class="book_portada">
+                    <a href="#"><img src="/files/img/portada.png" alt="portada"></a>
+                </div>
+                <div class="book_data">
+                    <a href="#" class="book_name"><span>Ley N. 34, Apoyo Comite de Agua</span></a>
+                    <br><br>
+                    <span class="book_author">Biblioteca SIMAS</span>
+                </div>
+                <div class="clean"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clean"></div>
+</div>
+<div class="index_content">
+    <div class="index_intro_text">
+        <span class="index_content_title">Introducci&oacute;n</span>
+        <div class="breve_descripcion">
+            In dapibus augue elementum habitasse rhoncus pulvinar turpis dapibus cras, sit adipiscing in, nisi sed, elementum, integer et, ac nec, nisi! Enim placerat dis, nec tempor parturient aliquam montes pulvinar nec enim, pulvinar augue? Auctor platea, lorem arcu magna natoque! Vel et, a porta. Mid. Porta porttitor sit, odio quis sit egestas integer eu! Pulvinar mid, tincidunt montes dictumst pellentesque. Vut sagittis mauris dignissim. Turpis rhoncus! Pellentesque porttitor turpis
+        </div>
+    </div>
+    <div class="index_bibliotecas">
+        <span class="index_content_title">Bibliotecas</span>
+        <div class="biblios">
+            <div class="biblioteca">
+                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
+                <center>
+                    <span class="cantidad_libros">40</span><br>
+                    <span>Libros</span>
+                </center>
+            </div>
+            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
+            <div class="biblioteca">
+                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
+                <center>
+                    <span class="cantidad_libros">100</span><br>
+                    <span>Libros</span>
+                </center>
+            </div>
+            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
+            <div class="biblioteca">
+                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
+                <center>
+                    <span class="cantidad_libros">30</span><br>
+                    <span>Libros</span>
+                </center>
+            </div>
+            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
+            <div class="biblioteca">
+                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
+                <center>
+                    <span class="cantidad_libros">20</span><br>
+                    <span>Libros</span>
+                </center>
+            </div>
+            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
+        </div>
+    </div>
+</div>
 {% endblock %}
