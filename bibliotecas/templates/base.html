@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>{%block title%}Bibliotecas{%endblock%}</title>
+    <link href="{{MEDIA_URL}}css/style.css" rel="stylesheet" type="text/css" media="screen" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+       
+
+<!--[if lt IE 7.]>
+<script defer type="text/javascript" src="js/pngfix.js"></script>
+<![endif]-->
+
+{%block extra_header%}
+{%endblock%}
+</head>
+<body>
+
+<div id="header">
+    <img src="/media/imagen/sin.jpg" width=570 height=78 alt="biblioteca"/>       
+</div>
+
+<div id="wrapper">
+
+<div id="menu">
+    <ul class="nav-menu">
+        <li> <a href="/">Inicio</a> </li>
+        <li> <a href="#">Buscar</a> </li>
+        <li> <a href="/admin">Administración</a> </li>
+    </ul>
+</div>
+		
+            {% block contenido %}
+                <p>
+                    aca va unas fotos quizas o algo explicativo
+                </p>
+            {% endblock %}
+
+<div id="footer">
+    <p><a href="http://www.simas.org.ni">SIMAS 2009</a></p>
+</div>
+
+</div> <!-- End #wrapper -->
+</body>
+</html>
+

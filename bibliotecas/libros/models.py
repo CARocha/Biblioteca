@@ -4,9 +4,27 @@ from django.db import models
 from thumbs import ImageWithThumbsField
 from lugar.models import *
 from django.conf import settings
-from bibliotecas.utils import get_file_path 
+from bibliotecas.utils import get_file_path
+from django.contrib.auth.models import User 
 
 # Create your models here.
+
+#class SearchManager(models.Manager):
+#    def __init__(self, fields):
+#        models.Manager.__init__(self)
+#        self.fields = fields
+#        
+#def search(self, query):
+#    meta = self.model._meta
+#    db_columns = ['%s.%s' % (meta.db_table,
+#                  meta.get_field(name).column,
+#                  for name in self.fields]
+#    columns = ','.join(db_columns)
+#    exp = 'MATCH(%s) AGAINST (%%s IN NATURAL LANGUAGE MODE)' % \columns
+#    return self.extra(where=[exp], params=[query],
+#                      select={'relevance': exp})
+
+
 
 class Tematica(models.Model):
     ''' Tematicas de los distintos libros
@@ -90,6 +108,15 @@ class Libro(models.Model):
     tipo = models.ForeignKey(TipoDocumento)
 
     fileDir = 'attachments/portadas'
+    
+    usuario = models.ForeignKey(User)
+    
+    def __unicode__(self):
+        return self.titulo
+    
+#    search = SearchManager(['titulo', 'autor', 'organizacion', 'edicion', 
+#                            'tematica', 'editorial', 'descritores', 
+#                            'nota_descriptiva', 'resumen'])
     
 class Archivos(models.Model):
     nombre = models.CharField(max_length=200)

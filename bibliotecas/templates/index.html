@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<form id="searchform" action="/libros/busqueda/" method="GET">
+			<input type="text" id="searchfield" name="q" value="{{ query|escape }}">
+			<input type="submit" value="query">
+</form>
+
+{% if query %}
+				Se encontraron {{c}} resultados para: "{{ query|escape }}":
+		
+   </div>
+		<div id="resultado">
+			{% if results %}
+				{% for libros in results %}
+				<div class="contenido_detalle"> 
+						<h1><a href="/libros/ver/{{libros.id}}/" rel="facebox">{{ libros.titulo }} </a></h1>
+						{% if libros.titulo %}
+						<b>Libros:</b> {{ libros.titulo }} <br>
+						{% endif %}
+						<div class="leermas"><a href="/libros/ver/{{libros.id}}/" rel="facebox"><img src="{{MEDIA_URL}}imagen/mas.png"></a></div>
+           
+				</div>
+				{% endfor %}
+			{% else %} 
+					<p>Libros NO encontrado</p> 
+			{% endif %} 
+		{% endif %}
+
+
+{% endblock %}
