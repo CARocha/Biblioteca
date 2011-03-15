@@ -77,3 +77,6 @@ INSTALLED_APPS = (
     'bibliotecas.libros',
     'south',  
 )
+
+DEFAULT_FROM_EMAIL = 'no-reply@simasni.org'
+LOGIN_REDIRECT_URL = '/'

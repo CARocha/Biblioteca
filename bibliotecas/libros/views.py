@@ -11,19 +11,7 @@ from django.shortcuts import render_to_response
 from django.db.models import Q
 
 from libros.models import *
-#from libros.index import complete_indexer
-
-#MODEL_MAP = {
-#    'Organizacion': Organizacion,
-#    'Editorial': Editorial,
-#    'Libro': Libro
-#}
-
-#MODEL_CHOICES = [('', 'all')] + zip(MODEL_MAP.keys(), MODEL_MAP.keys())
-
-#class SearchForm(forms.Form):
-#    query = forms.CharField(required=True)
-#    model = forms.ChoiceField(choices=MODEL_CHOICES, required=False)
+import re
 
 
 def index(request):
@@ -38,18 +26,33 @@ def search(request):
     query = request.GET.get('q', '')
     query = query.replace(",","")
     if query:
-        #qsets = []
-        qdata = (
-    		Q(titulo__icontains=query)|
-    		Q(autor__icontains=query)|
-    		Q(nota_descriptiva__icontains=query)|
-    		Q(resumen__icontains=query)|
-    		Q(tipo__nombre__icontains=query)|
-    		Q(tematica__nombre__icontains=query)|
-    		Q(organizacion__nombre__icontains=query)
-    			)
-        #qsets.append(qdata) 
-        results = Libro.objects.filter(qdata).distinct()
+        separacion = re.split('\W+', query)
+        qsets = []
+        for palabra in separacion:
+            qsets.append((
+            
+                          Q(titulo__icontains=palabra) | 
+                          Q(autor__icontains=palabra)  |
+                          Q(nota_descriptiva__icontains=palabra)|
+                          Q(resumen__icontains=palabra)|
+    		              Q(tipo__nombre__icontains=palabra)|
+    		              Q(tematica__nombre__icontains=palabra)|
+    		              Q(organizacion__nombre__icontains=palabra)
+                          
+                          ))
+        qsets = [reduce(lambda x,y: x&y, qsets, Q())]
+#        qdata = (
+#    		Q(titulo__icontains=query)|
+#    		Q(autor__icontains=query)|
+#    		Q(nota_descriptiva__icontains=query)|
+#    		Q(resumen__icontains=query)|
+#    		Q(tipo__nombre__icontains=query)|
+#    		Q(tematica__nombre__icontains=query)|
+#    		Q(organizacion__nombre__icontains=query)
+#    			)
+        #qsets.append(qdata)
+        q = reduce(lambda x,y: x|y, qsets, Q()) 
+        results = Libro.objects.filter(q).distinct()
     else:
         results = []
     dicc = {"results": results, "query": query, "c": len(results)}
@@ -63,17 +66,4 @@ def ver_busqueda(request, id):
     return render_to_response('libros/ver_libros.html', 
                               {'libros': libros},
                               context_instance = RequestContext(request))
-#    results = []
-#    if request.GET:
-#        form = SearchForm(request.GET)
-#        if form.is_valid():
-#            query = form.cleaned_data['query']
-#            results = indexer.search(query).prefetch()
-#            paginator = Paginator(indexer.search(query).prefetch(), 5)
-#            results = paginator.page(int(request.GET.get('page', 1)))
-#    else:
-#        form = SearchForm()
-#   
-#    return render_to_response('libros/search.html', {'results': results, 'form': form},
-#                               context_instance=RequestContext(request))
 

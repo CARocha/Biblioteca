@@ -1,12 +1,11 @@
 from django.conf.urls.defaults import *
+from django.contrib.auth.views import password_change
+from django.contrib.auth.views import password_change_done
+from django.contrib.auth.views import password_reset
+from django.contrib.auth.views import password_reset_done
 from django.views.generic.simple import direct_to_template
 import settings
 from os import path as os_path
-
-#import djapian
-
-#djapian.load_indexes()
-
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -17,6 +16,7 @@ urlpatterns = patterns('',
     (r'^$', 'libros.views.index'),
     (r'^libros/', include('libros.urls')),
     #(r'^busqueda/', include('haystack.urls')),
+    (r'^accounts/', include('registration.backends.default.urls')),
 )
 
 if settings.DEBUG:
