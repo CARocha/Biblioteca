@@ -1,5 +1,25 @@
 {% extends "base.html" %}
 
+{% block extra_header %}
+<script type="text/javascript">
+    $(document).ready(function(){
+        {% if query %}  
+        {% else %}
+        $('#searchfield').val('Buscar');
+        {% endif %}
+        $('#searchfield').click(function(){
+            if($(this).val()=='Buscar'){$(this).val('')}
+        });
+        $('#searchfield').focus(function(){
+            if($(this).val()=='Buscar'){$(this).val('')}
+        });
+        $('#searchfield').blur(function(){
+            if($(this).val()==''){$(this).val('Buscar')}
+        });
+    });
+</script>
+{% endblock %}
+
 {% block contenido %}
 <div class="banner">    
     <br><br>
