@@ -87,5 +87,5 @@ EMAIL_HOST = 'simasni.org'
 EMAIL_HOST_USER = 'develop@simasni.org'
 EMAIL_HOST_PASSWORD = 'gatitobonito'
 
-#DEFAULT_FROM_EMAIL = 'no-reply@simasni.org'
+DEFAULT_FROM_EMAIL = 'noreply@bibliotecas.simas.org.ni'
 LOGIN_REDIRECT_URL = '/'
