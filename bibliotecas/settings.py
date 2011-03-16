@@ -75,7 +75,8 @@ INSTALLED_APPS = (
     # 'django.contrib.admindocs',
     'lugar',
     'bibliotecas.libros',
-    'south',  
+    'south',
+    'registration',  
 )
 
 DEFAULT_FROM_EMAIL = 'no-reply@simasni.org'
