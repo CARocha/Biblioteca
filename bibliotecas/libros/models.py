@@ -83,7 +83,7 @@ class Libro(models.Model):
     pagina = models.IntegerField('Números de paginas', null=True, blank=True)
     isbn = models.CharField(max_length=200, null=True, blank=True)
     cantidad = models.IntegerField('cantidad en bodega', null=True, blank=True)
-    descritores = models.TextField(null=True, blank=True)
+    descritores = models.CharField(max_length=200, null=True, blank=True)
     nota_descriptiva = models.TextField(null=True, blank=True)
     resumen = models.TextField(null=True, blank=True)
     portada = ImageWithThumbsField(upload_to=get_file_path, 
