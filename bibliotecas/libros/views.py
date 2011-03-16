@@ -25,7 +25,10 @@ def index(request):
     ''' Vista que devolvera muchas de las salidas
         de la pagina principal o inicio del sitio
     '''
-    ultimos = Libro.objects.all().order_by('-id')[0]
+    try:
+        ultimos = Libro.objects.all().order_by('-id')[0]
+    except:
+        pass
     tabla = {}
     
     for i in Organizacion.objects.all():
