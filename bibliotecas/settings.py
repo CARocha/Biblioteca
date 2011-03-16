@@ -79,5 +79,13 @@ INSTALLED_APPS = (
     'registration',  
 )
 
+ACCOUNT_ACTIVATION_DAYS = 3
+ACCOUNT_ACTIVATION_DAYS = 2
+#EMAIL_HOST='localhost'
+#EMAIL_PORT=25
+EMAIL_HOST = 'maonic.simas.org.ni'
+EMAIL_HOST_USER = 'no-reply@maonic.simas.org.ni'
+EMAIL_HOST_PASSWORD = 'gatitobonito'
+DEFAULT_FROM_EMAIL = 'no-reply@maonic.simas.org.ni'
 DEFAULT_FROM_EMAIL = 'no-reply@simasni.org'
 LOGIN_REDIRECT_URL = '/'
