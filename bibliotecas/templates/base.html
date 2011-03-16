@@ -16,6 +16,11 @@
                 $('div#login').click(function(){
                     jQuery.facebox({ ajax: '/accounts/login/' });
                 });
+                
+                $('a[rel*=facebox]').facebox({
+                    loading_image : '{{MEDIA_URL}}img/loading.gif',
+                    close_image   : '{{MEDIA_URL}}img/closelabel.gif'
+                });
             });
         </script>
         <!--[if IE]>
