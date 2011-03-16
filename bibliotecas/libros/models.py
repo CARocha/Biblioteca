@@ -54,7 +54,7 @@ class Organizacion(models.Model):
     correo_electronico = models.EmailField()
     departamento = models.ForeignKey(Departamento)
     logo = ImageWithThumbsField(upload_to=get_file_path, 
-                                sizes=((150,150),(250,250)), null=True, blank=True)
+                                sizes=((53,53),(250,250)), null=True, blank=True)
     sitio_web = models.URLField(null=True, blank=True)
 
     fileDir = 'attachments/logos'
@@ -87,7 +87,7 @@ class Libro(models.Model):
     nota_descriptiva = models.TextField(null=True, blank=True)
     resumen = models.TextField(null=True, blank=True)
     portada = ImageWithThumbsField(upload_to=get_file_path, 
-                                   sizes=((150,150),(250,250)), null=True, blank=True)
+                                   sizes=((126,163),(250,250),(48,62)), null=True, blank=True)
     tipo = models.ForeignKey(TipoDocumento)
 
     fileDir = 'attachments/portadas'

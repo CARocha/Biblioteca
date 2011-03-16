@@ -14,6 +14,8 @@ from django.db.models import Q
 
 from libros.models import *
 import re
+from django.template.defaultfilters import slugify
+from django.db.models import Count
 
 def logout_page(request):
   logout(request)
@@ -23,7 +25,16 @@ def index(request):
     ''' Vista que devolvera muchas de las salidas
         de la pagina principal o inicio del sitio
     '''
-    return render_to_response('index.html', 
+    ultimos = Libro.objects.all().order_by('-id')[0]
+    tabla = {}
+    
+    for i in Organizacion.objects.all():
+        conteo = Libro.objects.filter(organizacion=i)
+        organi = conteo.aggregate(organi=Count('titulo'))['organi']
+        urls = i.logo
+        tabla[urls] = {'organi':organi, 'urls':urls}
+    
+    return render_to_response('index.html', {'ultimos': ultimos, 'tabla':tabla},
                               context_instance=RequestContext(request))
 
 

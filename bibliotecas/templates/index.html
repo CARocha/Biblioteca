@@ -30,15 +30,21 @@
         <div class="clean"></div>
         <div class="ultimo_libro">            
             <span class="book_title">Ultimo libro agregado</span>
+          
             <div class="last_book">
                 <div class="book_portada">
-                    <a href="#"><img src="/files/img/portada.png" alt="portada"></a>
+                {% if ultimos.portada %}
+                    <a href="#"><img src="{{ultimos.portada.url_126x163}}" alt="portada"></a>
+                {% else %}
+                    <a href="#"><img src="/files/img/sin_portada.png" alt="portada"></a>
+                {% endif %}
                 </div>
                 <div class="book_data">
-                    <a href="#" class="book_name"><span>Ley N. 34, Apoyo Comite de Agua</span></a>
+                    <a href="#" class="book_name"><span>{{ultimos.titulo}}</span></a>
                     <br><br>
-                    <span class="book_author">Biblioteca SIMAS</span>
+                    <span class="book_author">Biblioteca-{{ultimos.organizacion}}</span>
                 </div>
+            
                 <div class="clean"></div>
             </div>
         </div>
@@ -55,38 +61,16 @@
     <div class="index_bibliotecas">
         <span class="index_content_title">Bibliotecas</span>
         <div class="biblios">
+        {% for x, v in tabla.items %}
             <div class="biblioteca">
-                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
+                <img src="{{x.url_53x53}}" alt="bibliotecas"><br>
                 <center>
-                    <span class="cantidad_libros">40</span><br>
-                    <span>Libros</span>
+                    <span class="cantidad_libros">{{v.organi}}</span><br>
+                    <span>Documentos</span>
                 </center>
             </div>
             <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
-            <div class="biblioteca">
-                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
-                <center>
-                    <span class="cantidad_libros">100</span><br>
-                    <span>Libros</span>
-                </center>
-            </div>
-            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
-            <div class="biblioteca">
-                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
-                <center>
-                    <span class="cantidad_libros">30</span><br>
-                    <span>Libros</span>
-                </center>
-            </div>
-            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
-            <div class="biblioteca">
-                <img src="/files/img/logo_biblio.png" alt="bibliotecas"><br>
-                <center>
-                    <span class="cantidad_libros">20</span><br>
-                    <span>Libros</span>
-                </center>
-            </div>
-            <img class="separador_biblio" src="/files/img/separator_biblio.png" alt="separador">
+           {% endfor %}
         </div>
     </div>
 </div>

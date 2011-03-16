@@ -37,7 +37,11 @@
     {% for libros in results %}
     <div class="contenido_detalle">
         <div class="tipo">
-            <img src="/files/img/libro.png" alt="tipo material">
+            {% if libros.tipo.nombre == "publicacion" %}
+                <img src="/files/img/libro.png" alt="tipo material">
+            {% else %} {% if libros.tipo.nombre == "video" %}
+                <img src="/files/img/video.png" alt="tipo material">
+            {% endif %} {% endif %}
         </div>
         <div class="busqueda_datos_libro">
             <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
@@ -46,23 +50,15 @@
             {% endif %}
         </div>
         <div class="busqueda_libro_portada">
-            <img src="/files/img/thumb.png" alt="portada libro">
+        {% if libros.portada %}
+            <img src="{{libros.portada.url_48x62}}" alt="portada libro">
+        {% else %}
+            <img src="/files/img/sin_portada2.png" alt="portada libro">
+        {% endif %}
         </div>
         <div class="clean"></div>
     </div>
-    <div class="contenido_detalle">
-        <div class="tipo">
-            <img src="/files/img/video.png" alt="tipo material">
-        </div>
-        <div class="busqueda_datos_libro">            
-            <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
-            {% if libros.titulo %}
-            <b>Author:</b> {{ libros.autor }}<br>
-            {% endif %}            
-        </div>
-        <div class="busqueda_libro_portada">
-            <img src="/files/img/thumb.png" alt="portada libro">
-        </div>
+    
         <div class="clean"></div>
     </div>
     {% endfor %}
