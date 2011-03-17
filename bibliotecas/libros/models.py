@@ -100,10 +100,10 @@ class Libro(models.Model):
     def __unicode__(self):
         return self.titulo
     
-#    search = SearchManager(['titulo', 'autor', 'organizacion', 'edicion', 
-#                            'tematica', 'editorial', 'descritores', 
-#                            'nota_descriptiva', 'resumen'])
-    
+    def adjunto(self):
+        adjunto = Archivos.objects.filter(libr__id=self.id)
+        return adjunto    
+
 class Archivos(models.Model):
     nombre = models.CharField(max_length=200)
     archivo = models.FileField(upload_to=get_file_path, null=True, blank=True)

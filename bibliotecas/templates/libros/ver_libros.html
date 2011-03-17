@@ -55,6 +55,9 @@
                     <div class="campo_libros"><b>Resumen:</b></div>
                     <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen}}<br>
                     {%endif%}
+                    {% for archivos in  libros.adjunto.all %}
+                        {{archivos.adjunto}}
+	                {% endfor %}
                     
                 </p>
                 <br clear="both">
