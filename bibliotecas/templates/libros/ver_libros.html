@@ -7,61 +7,53 @@
                 <p>
                      {% if libros.autor%}
                     <div class="campo_libros"><b>Autor:</b></div>
-                     <img src="{{MEDIA_URL}}imagen/user.png"> {{libros.autor}}<br>
+                     <img src="{{MEDIA_URL}}img/autor.png"> {{libros.autor}}<br>
                     {%endif%}
                     <div class="campo_libros"><b>Organización:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/telephone.png"> {{libros.organizacion}}<br>
+                    <img src="{{MEDIA_URL}}img/organizacion.png"> {{libros.organizacion}}<br>
                     {% if libros.codigo%}
                     <div class="campo_libros"><b>Codigo:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/telephone.png"> {{libros.codigo}}<br>
+                    <img src="{{MEDIA_URL}}img/codigo.png"> {{libros.codigo}}<br>
                     {%endif%}
                     {% if libros.edicion%}
                     <div class="campo_libros"><b>Edición:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/email.png"> {{libros.edicion}}<br>
+                    <img src="{{MEDIA_URL}}img/edicion.png"> {{libros.edicion}}<br>
                     {%endif%}
                     {% if libros.tematica%}
                     <div class="campo_libros"><b>Tematica:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/email.png"> {{libros.tematica}}<br>
+                    <img src="{{MEDIA_URL}}img/tematica.png"> {{libros.tematica}}<br>
                     {%endif%}
                     {% if libros.fecha_pub%}
                     <div class="campo_libros"><b>Fecha de Publicación:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/organizacion2.png"> {{libros.fecha_pub}}<br>
+                    <img src="{{MEDIA_URL}}img/fecha_pub.png"> {{libros.fecha_pub}}<br>
                     {%endif%}
                     {% if libros.lugar_pub%}
                     <div class="campo_libros"><b>Lugar de Publicación:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/skype.png">{{libros.lugar_pub}}<br>
+                    <img src="{{MEDIA_URL}}img/lugar_pub.png">{{libros.lugar_pub}}<br>
                     {%endif%}
                     {% if libros.editorial%}
                     <div class="campo_libros"><b>Editorial:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/telephone.png"> {{libros.editorial}}<br>
+                    <img src="{{MEDIA_URL}}img/editorial.png"> {{libros.editorial}}<br>
                     {%endif%}
                     {% if libros.pagina%}
                     <div class="campo_libros"><b>Número de paginas:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/phone.png">  {{libros.pagina}}<br>
+                    <img src="{{MEDIA_URL}}img/paginas.png">  {{libros.pagina}}<br>
                     {%endif%}
                     {% if libros.isbn%}
                     <div class="campo_libros"><b>isbn:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/phone.png"> {{libros.isbn}}<br>
+                    <img src="{{MEDIA_URL}}img/isbn.png"> {{libros.isbn}}<br>
                     {%endif%}
                     {% if libros.cantidad%}
                     <div class="campo_libros"><b>Cantidad disponible fisicamente:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/direccion.png"> {{libros.cantidad}}<br>
-                    {%endif%}
-                    {% if libros.descritores%}
-                    <div class="campo_libros"><b>Descriptores:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/direccion.png"> {{libros.descritores}}<br>
+                    <img src="{{MEDIA_URL}}img/cantidad.png"> {{libros.cantidad}}<br>
                     {%endif%}
                     {% if libros.nota_descriptiva%}
                     <div class="campo_libros"><b>Nota descriptiva:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/ciudad.png"> {{libros.nota_descriptiva}}<br>
+                    <img src="{{MEDIA_URL}}img/nota_descriptiva.png"> {{libros.nota_descriptiva}}<br>
                     {%endif%}
                     {% if libros.resumen%}
                     <div class="campo_libros"><b>Resumen:</b></div>
-                    <img src="{{MEDIA_URL}}imagen/postal.png"> {{libros.resumen}}<br>
-                    {%endif%}
-                    {% if libros.tipo%}
-                    <div class="campo_libros"><b>Tipo de Documento:</b> </div>
-                    <img src="{{MEDIA_URL}}imagen/pais.png"> {{libros.tipo.nombre}}<br>
+                    <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen}}<br>
                     {%endif%}
                     
                 </p>

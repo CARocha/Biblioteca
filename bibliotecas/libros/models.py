@@ -35,6 +35,9 @@ class TipoDocumento(models.Model):
     ''' Tematicas de los distintos libros
     '''
     nombre = models.CharField(max_length=200)
+    logo = ImageWithThumbsField(upload_to=get_file_path, 
+                                sizes=((56,68),(23,25)), null=True, blank=True)
+    fileDir = 'attachments/tipodoc'
     
     def __unicode__(self):
         return self.nombre
