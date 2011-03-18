@@ -44,6 +44,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'pagination.middleware.PaginationMiddleware',
 )
 
 ROOT_URLCONF = 'bibliotecas.urls'
@@ -76,7 +77,8 @@ INSTALLED_APPS = (
     'lugar',
     'bibliotecas.libros',
     'south',
-    'registration',  
+    'registration',
+    'pagination',  
 )
 
 ACCOUNT_ACTIVATION_DAYS = 3

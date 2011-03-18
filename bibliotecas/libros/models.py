@@ -101,7 +101,7 @@ class Libro(models.Model):
         return self.titulo
     
     def adjunto(self):
-        adjunto = Archivos.objects.filter(libr__id=self.id)
+        adjunto = Archivos.objects.filter(libro__id=self.id)
         return adjunto    
 
 class Archivos(models.Model):

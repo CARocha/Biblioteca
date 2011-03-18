@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load pagination_tags %}
 {% block extra_header %}
 <script type="text/javascript">
     $(document).ready(function(){
@@ -33,6 +33,7 @@
 <div class="busqueda_resultados">
     {% if query %}    
     <div class="busqueda_encontrados">Se encontraron <b>{{c}}</b> resultados para: "{{query|escape}}":</div>
+        {% autopaginate results 3 %}  
     {% if results %}
     {% for libros in results %}
     <div class="contenido_detalle">
@@ -60,12 +61,13 @@
     </div>
     
         <div class="clean"></div>
-    </div>
+   
     {% endfor %}
     {% else %}
     <p>No hay resultados!!</p>
     {% endif %}
     {% endif %}
-</div>
+    {% paginate %}
+ </div>
 {% endblock %}
 

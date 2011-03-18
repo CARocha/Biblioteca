@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 # Create your views here.
 
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
@@ -43,6 +44,11 @@ def index(request):
 
 def search(request):
     query = request.GET.get('q', '')
+#    nada = ['.','@',',','','|','?','¬','"','$','%','&','(',')','=']
+#    for i in nada:
+#        query = query.replace("i","")
+    query = query.replace(".","")
+    query = query.replace("@","")
     query = query.replace(",","")
     if query:
         separacion = re.split('\W+', query)

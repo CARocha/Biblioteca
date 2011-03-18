@@ -55,9 +55,13 @@
                     <div class="campo_libros"><b>Resumen:</b></div>
                     <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen}}<br>
                     {%endif%}
+                    {% if libros.adjunto %}
                     {% for archivos in  libros.adjunto.all %}
                         {{archivos.adjunto}}
 	                {% endfor %}
+	                {% else %}
+	                  <p>No hay adjunto</p>
+	                {% endif %}
                     
                 </p>
                 <br clear="both">
