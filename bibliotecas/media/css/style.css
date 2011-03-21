@@ -333,4 +333,26 @@ span.book_title{
     font-size: 12px;
     color: #656565;
     font-weight: bold;
+/*    float: right;*/
 }
+
+/*CSS DE LOS ERRORES*/
+.errorlist{
+    background: red;
+    color: #000;
+    list-style-type: none;
+    font-size:10px;
+    border: #f00000 1px solid;
+}
+
+/*TABLA DEL REGISTRO*/
+
+div.ajustado {
+    background: #babdb6;
+    text-align: left;
+}
+
+div.ajustado table {
+    margin: auto;
+}
+

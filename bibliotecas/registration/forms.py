@@ -41,7 +41,7 @@ class RegistrationForm(forms.Form):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs=attrs_dict, render_value=False),
                                 label=_("Repetir clave"))
     tipo_usuario = forms.ModelMultipleChoiceField(label="Grupo", queryset=Group.objects.all(),
-                                        required = False)
+                                        required = True)
     
     def clean_username(self):
         """

@@ -49,18 +49,19 @@
                     {%endif%}
                     {% if libros.nota_descriptiva%}
                     <div class="campo_libros"><b>Nota descriptiva:</b></div>
-                    <img src="{{MEDIA_URL}}img/nota_descriptiva.png"> {{libros.nota_descriptiva}}<br>
+                    <img src="{{MEDIA_URL}}img/nota_descriptiva.png"> {{libros.nota_descriptiva|safe}}<br>
                     {%endif%}
                     {% if libros.resumen%}
                     <div class="campo_libros"><b>Resumen:</b></div>
-                    <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen}}<br>
+                    <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen|safe}}<br>
                     {%endif%}
                     {% if libros.adjuntos %}
                     <div class="campo_libros"><b>Descargar:</b></div> 
                     {% for adjunto in libros.adjuntos.all %}
-                        {{adjunto.nombre}}                  
-                         <a href="{{MEDIA_URL}}{{adjunto.archivo}}"><img style="float:right" src="/files/img/descargar.png"></a> 
-                     
+                        {{adjunto.nombre}}
+                        <tr class="{% cycle 'red' 'green' %}">                  
+                         <a href="{{MEDIA_URL}}{{adjunto.archivo}}"><img style="float:right" src="/files/img/descargar.png"></a><br><br><br>
+                    </tr>
                     {% endfor %}             
 	                {% else %}
 	                  <p>No hay adjunto</p>
