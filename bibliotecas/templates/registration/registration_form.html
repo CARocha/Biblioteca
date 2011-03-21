@@ -2,14 +2,13 @@
 {% block titulo %} Registro de usuario {% endblock %}
 
 {% block contenido%}
-<div class="ajustado">    
+<div class="banner">
+    <br><br>
     <form action="." method="post">{% csrf_token %}
         <table>
             {{ form.as_table }}
         </table>
         <input name="submit" type="submit" value="Registrarse">
     </form>
-    
 </div>
-
 {% endblock %}
