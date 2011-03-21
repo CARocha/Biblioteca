@@ -100,9 +100,9 @@ class Libro(models.Model):
     def __unicode__(self):
         return self.titulo
     
-    def adjunto(self):
-        adjunto = Archivos.objects.filter(libro__id=self.id)
-        return adjunto    
+    def adjuntos(self):
+        adjuntos = Archivos.objects.filter(libro__id=self.id)
+        return adjuntos    
 
 class Archivos(models.Model):
     nombre = models.CharField(max_length=200)

@@ -33,7 +33,7 @@
 <div class="busqueda_resultados">
     {% if query %}    
     <div class="busqueda_encontrados">Se encontraron <b>{{c}}</b> resultados para: "{{query|escape}}":</div>
-        {% autopaginate results 3 %}  
+        {% autopaginate results 10 %}  
     {% if results %}
     {% for libros in results %}
     <div class="contenido_detalle">

@@ -55,10 +55,12 @@
                     <div class="campo_libros"><b>Resumen:</b></div>
                     <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen}}<br>
                     {%endif%}
-                    {% if libros.adjunto %}
-                    {% for archivos in  libros.adjunto.all %}
-                        {{archivos.adjunto}}
-	                {% endfor %}
+                    {% if libros.adjuntos %}
+                    <div class="campo_libros"><b>Descargar:</b></div> 
+                    {% for adjunto in libros.adjuntos.all %}
+                        {{adjunto.nombre}}                  
+                         <a href="{{MEDIA_URL}}{{adjunto.archivo}}"><img style="float:right" src="/files/img/descargar.png"></a> 
+                    {% endfor %}             
 	                {% else %}
 	                  <p>No hay adjunto</p>
 	                {% endif %}
