@@ -60,6 +60,7 @@
                     {% for adjunto in libros.adjuntos.all %}
                         {{adjunto.nombre}}                  
                          <a href="{{MEDIA_URL}}{{adjunto.archivo}}"><img style="float:right" src="/files/img/descargar.png"></a> 
+                     
                     {% endfor %}             
 	                {% else %}
 	                  <p>No hay adjunto</p>

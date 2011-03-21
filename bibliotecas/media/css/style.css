@@ -307,4 +307,30 @@ span.book_title{
 
 #pagination a:hover {
     border:solid 1px #0e509e;
-} 
+}
+
+/*CSS PARA VER LOS DOCUMENTOS */
+
+#content_lista {
+    font-size: 13px;
+    font-family: "Arial", sans-serif;
+    
+}
+
+#titulo_content_lista {
+    font-size: 14px;
+    color: #3D2C10;
+    font-weight: bold;
+}
+
+#resultado .contenido_detalle {
+    font-size: 10px;
+    color: #505050;
+    font-family: 'Neuton', serif;
+    text-shadow: 4px 4px 4px #aaa;
+}
+#resultado .campo_libros {
+    font-size: 12px;
+    color: #656565;
+    font-weight: bold;
+}
