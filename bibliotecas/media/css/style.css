@@ -345,14 +345,3 @@ span.book_title{
     border: #f00000 1px solid;
 }
 
-/*TABLA DEL REGISTRO*/
-
-div.ajustado {
-    background: #babdb6;
-    text-align: left;
-}
-
-div.ajustado table {
-    margin: auto;
-}
-
