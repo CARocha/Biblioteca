@@ -47,7 +47,11 @@
         <div class="busqueda_datos_libro">
             <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
             {% if libros.titulo %}
-            <b>Author:</b> {{ libros.autor }}<br>
+            <b>Author:</b> {{ libros.autor }}
+            <b>Código:</b> {{ libros.codigo }}
+            <b>Editorial:</b> {{ libros.editorial }}
+            <b>Lugar:</b> {{ libros.lugar_pub }}
+            <b>Fecha:</b> {{ libros.fecha_pub }}
             {% endif %}
         </div>
         <div class="busqueda_libro_portada">

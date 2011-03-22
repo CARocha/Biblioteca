@@ -78,7 +78,7 @@ def search(request):
 #    			)
         #qsets.append(qdata)
         q = reduce(lambda x,y: x|y, qsets, Q()) 
-        results = Libro.objects.filter(q).distinct()
+        results = Libro.objects.filter(q,publicar=True).distinct()
     else:
         results = []
     dicc = {"results": results, "query": query, "c": len(results)}

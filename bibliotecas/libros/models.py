@@ -68,6 +68,18 @@ class Organizacion(models.Model):
     class Meta:
         verbose_name = "Organización"
         verbose_name_plural = "Organizaciones"
+        
+class Disponibilidad(models.Model):
+    '''Modelo sobre la disponibilidad de los 
+       documentos esta pueden ser en sala, cd
+       etc.
+    ''' 
+    nombre = models.CharField(max_length=200, null=True, blank=True)
+    
+    def __unicode__(self):
+        return self.nombre
+        
+CHOICE_IDIOMA=((1,'Español'),(2,'Ingles'),(3,'Portugues'))
 
 class Libro(models.Model):
     ''' clase que contendra los libros de las
@@ -75,9 +87,11 @@ class Libro(models.Model):
         esta app
     '''
     titulo = models.CharField(max_length=200)
+    #idioma = models.IntegerField(choices=CHOICE_IDIOMA)
     autor = models.CharField(max_length=200, null=True, blank=True)
     organizacion = models.ForeignKey(Organizacion)
     codigo = models.CharField(max_length=200, null=True, blank=True)
+    disponibilidad = models.ManyToManyField(Disponibilidad)
     edicion = models.CharField(max_length=200, null=True, blank=True)
     tematica = models.ForeignKey(Tematica)
     fecha_pub = models.DateField('Fecha de publicación')
@@ -85,13 +99,14 @@ class Libro(models.Model):
     editorial = models.ForeignKey(Editorial)
     pagina = models.IntegerField('Números de paginas', null=True, blank=True)
     isbn = models.CharField(max_length=200, null=True, blank=True)
-    cantidad = models.IntegerField('cantidad en bodega', null=True, blank=True)
-    descritores = models.CharField(max_length=200, null=True, blank=True)
-    nota_descriptiva = models.TextField(null=True, blank=True)
+    cantidad = models.IntegerField('No. de copias', null=True, blank=True)
+    descritores = models.CharField(max_length=200, null=True, blank=True, help_text="Agregar los descriptores separados con espacio ejemplo: agua tierra agri")
+    nota_descriptiva = models.CharField('Obsevaciones', max_length=200, null=True, blank=True)
     resumen = models.TextField(null=True, blank=True)
     portada = ImageWithThumbsField(upload_to=get_file_path, 
                                    sizes=((126,163),(250,250),(48,62)), null=True, blank=True)
     tipo = models.ForeignKey(TipoDocumento)
+    publicar = models.BooleanField()
 
     fileDir = 'attachments/portadas'
     
