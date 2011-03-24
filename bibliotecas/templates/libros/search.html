@@ -38,20 +38,29 @@
     {% for libros in results %}
     <div class="contenido_detalle">
         <div class="tipo">
-            {% if libros.tipo.nombre == "publicacion" %}
-                <img src="/files/img/libro.png" alt="tipo material">
-            {% else %} {% if libros.tipo.nombre == "video" %}
-                <img src="/files/img/video.png" alt="tipo material">
-            {% endif %} {% endif %}
+            {% if libros.tipo %}
+                <img src="{{libros.tipo.logo.url_56x68}}" alt="tipo material">
+            {% endif %}
         </div>
         <div class="busqueda_datos_libro">
             <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
             {% if libros.titulo %}
             <b>Author:</b> {{ libros.autor }}
+            {% endif %}
+            {% if libros.codigo %}
             <b>Código:</b> {{ libros.codigo }}
+            {% endif %}
+            {% if libros.editorial %}
             <b>Editorial:</b> {{ libros.editorial }}
+            {% endif %}
+            {% if libros.lugar_pub %}
             <b>Lugar:</b> {{ libros.lugar_pub }}
+            {% endif %}
+            {% if libros.fecha_pub %}
             <b>Fecha:</b> {{ libros.fecha_pub }}
+            {% endif %}
+             {% if libros.organizacion %}
+            <b>Organización:</b> {{ libros.organizacion }}
             {% endif %}
         </div>
         <div class="busqueda_libro_portada">

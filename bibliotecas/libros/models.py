@@ -79,7 +79,7 @@ class Disponibilidad(models.Model):
     def __unicode__(self):
         return self.nombre
         
-CHOICE_IDIOMA=((1,'Español'),(2,'Ingles'),(3,'Portugues'))
+CHOICE_IDIOMA=[(1,'Español'),(2,'Ingles'),(3,'Portugues')]
 
 class Libro(models.Model):
     ''' clase que contendra los libros de las
@@ -87,15 +87,15 @@ class Libro(models.Model):
         esta app
     '''
     titulo = models.CharField(max_length=200)
-    #idioma = models.IntegerField(choices=CHOICE_IDIOMA)
-    autor = models.CharField(max_length=200, null=True, blank=True)
+    idioma = models.IntegerField('Idioma del Documento', choices=CHOICE_IDIOMA)
+    autor = models.CharField(max_length=200)
     organizacion = models.ForeignKey(Organizacion)
     codigo = models.CharField(max_length=200, null=True, blank=True)
     disponibilidad = models.ManyToManyField(Disponibilidad)
     edicion = models.CharField(max_length=200, null=True, blank=True)
     tematica = models.ForeignKey(Tematica)
-    fecha_pub = models.DateField('Fecha de publicación')
-    lugar_pub = models.CharField('Lugar de publición', max_length=200)
+    fecha_pub = models.DateField('Fecha de publicación', null=True, blank=True)
+    lugar_pub = models.CharField('Lugar de publición', max_length=200, null=True, blank=True)
     editorial = models.ForeignKey(Editorial)
     pagina = models.IntegerField('Números de paginas', null=True, blank=True)
     isbn = models.CharField(max_length=200, null=True, blank=True)
