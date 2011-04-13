@@ -78,7 +78,9 @@ INSTALLED_APPS = (
     'bibliotecas.libros',
     'south',
     'registration',
-    'pagination',  
+    'pagination',
+    'bibliotecas.tagging',
+    'bibliotecas.tagging_autocomplete',  
 )
 
 ACCOUNT_ACTIVATION_DAYS = 3

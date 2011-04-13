@@ -30,8 +30,8 @@ class LibroAdmin(admin.ModelAdmin):
     date_hierarchy = 'fecha_pub'
     
     class Media:
-        js = ['../archivos/js/tiny_mce/tiny_mce.js',
-              '../archivos/js/editores/textareas.js',]
+        js = ['../files/js/tiny_mce/tiny_mce.js',
+              '../files/js/editores/textareas.js',]
     
 admin.site.register(Libro, LibroAdmin)
 admin.site.register(Tematica)

@@ -19,6 +19,7 @@ urlpatterns = patterns('',
     (r'^accounts/login/$', 'django.contrib.auth.views.login'),
     (r'^accounts/logout/$', 'libros.views.logout_page'),
     (r'^accounts/', include('registration.backends.default.urls')),
+    url(r'^tagging_autocomplete/', include('tagging_autocomplete.urls')),
 )
 
 if settings.DEBUG:

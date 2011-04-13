@@ -5,7 +5,12 @@ from thumbs import ImageWithThumbsField
 from lugar.models import *
 from django.conf import settings
 from bibliotecas.utils import get_file_path
-from django.contrib.auth.models import User 
+from django.contrib.auth.models import User
+#Agregando los tags
+from south.modelsinspector import add_introspection_rules
+from bibliotecas.tagging.models import Tag
+from bibliotecas.tagging_autocomplete.models import TagAutocompleteField
+add_introspection_rules ([], ["^bibliotecas\.tagging_autocomplete\.models\.TagAutocompleteField"])
 
 
 
@@ -91,6 +96,7 @@ class Libro(models.Model):
     autor = models.CharField(max_length=200)
     organizacion = models.ForeignKey(Organizacion)
     codigo = models.CharField(max_length=200, null=True, blank=True)
+    No_acceso = models.CharField(max_length=200, null=True, blank=True)
     disponibilidad = models.ManyToManyField(Disponibilidad)
     edicion = models.CharField(max_length=200, null=True, blank=True)
     tematica = models.ForeignKey(Tematica)
@@ -100,12 +106,14 @@ class Libro(models.Model):
     pagina = models.IntegerField('Números de paginas', null=True, blank=True)
     isbn = models.CharField(max_length=200, null=True, blank=True)
     cantidad = models.IntegerField('No. de copias', null=True, blank=True)
-    descritores = models.CharField(max_length=200, null=True, blank=True, help_text="Agregar los descriptores separados con espacio ejemplo: agua tierra agri")
+    #descritores = models.CharField(max_length=200, null=True, blank=True, help_text="Agregar los descriptores separados con espacio ejemplo: agua tierra agri")
+    descriptores = TagAutocompleteField(help_text='SEPARAR LAS PALABRAS CON "," ')
     nota_descriptiva = models.CharField('Obsevaciones', max_length=200, null=True, blank=True)
     resumen = models.TextField(null=True, blank=True)
-    portada = ImageWithThumbsField(upload_to=get_file_path, 
-                                   sizes=((126,163),(250,250),(48,62)), null=True, blank=True)
-    tipo = models.ForeignKey(TipoDocumento)
+    portada = ImageWithThumbsField(verbose_name='Caratula', upload_to=get_file_path, 
+                                   sizes=((126,163),(250,250),(48,62)), null=True, blank=True
+                                   )
+    tipo = models.ForeignKey(TipoDocumento, verbose_name="Tipo de materiales")
     publicar = models.BooleanField()
 
     fileDir = 'attachments/portadas'
