@@ -59,7 +59,7 @@ def search(request):
                           Q(titulo__icontains=palabra) | 
                           Q(autor__icontains=palabra)  |
                           Q(nota_descriptiva__icontains=palabra)|
-                          Q(descritores__icontains=palabra)|
+                          Q(descriptores__icontains=palabra)|
                           Q(resumen__icontains=palabra)|
     		              Q(tipo__nombre__icontains=palabra)|
     		              Q(tematica__nombre__icontains=palabra)|

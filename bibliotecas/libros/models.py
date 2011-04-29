@@ -97,7 +97,7 @@ class Libro(models.Model):
     organizacion = models.ForeignKey(Organizacion)
     codigo = models.CharField(max_length=200, null=True, blank=True)
     No_acceso = models.CharField(max_length=200, null=True, blank=True)
-    disponibilidad = models.ManyToManyField(Disponibilidad)
+    disponibilidad = models.ManyToManyField(Disponibilidad, null=True, blank=True)
     edicion = models.CharField(max_length=200, null=True, blank=True)
     tematica = models.ForeignKey(Tematica)
     fecha_pub = models.DateField('Fecha de publicación', null=True, blank=True)

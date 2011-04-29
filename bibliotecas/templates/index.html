@@ -33,7 +33,7 @@
           
             <div class="last_book">
                 <div class="book_portada">
-                {% if ultimos.portada %}
+                {% if ultimos.portada.url_126x163 %}
                     <a href="#"><img src="{{ultimos.portada.url_126x163}}" alt="portada"></a>
                 {% else %}
                     <a href="#"><img src="/files/img/sin_portada.png" alt="portada"></a>
@@ -63,7 +63,11 @@
         <div class="biblios">
         {% for x, v in tabla.items %}
             <div class="biblioteca">
+                {% if x.url_53x53 %}
                 <img src="{{x.url_53x53}}" alt="bibliotecas"><br>
+                {%else%}
+                <img src="/files/img/defecto.jpg" alt="bibliotecas"><br>
+                {%endif%}
                 <center>
                     <span class="cantidad_libros">{{v.organi}}</span><br>
                     <span>Documentos</span>

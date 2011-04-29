@@ -24,9 +24,9 @@ class LibroAdmin(admin.ModelAdmin):
     save_on_top = True
     actions_on_top = True
     inlines = [ArchivosInline]
-    list_display = ('titulo', 'autor', 'editorial', 'cantidad', 'resumen', 'tematica')
+    list_display = ('codigo','No_acceso', 'titulo', 'autor', 'resumen', 'tematica')
     list_filter = ['editorial', 'tematica']
-    search_fields = ['titulo', 'autor', 'editorial']
+    search_fields = ['titulo', 'autor', 'editorial__nombre']
     date_hierarchy = 'fecha_pub'
     
     class Media:
