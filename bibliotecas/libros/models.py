@@ -86,13 +86,18 @@ class Disponibilidad(models.Model):
         
 CHOICE_IDIOMA=[(1,'Español'),(2,'Ingles'),(3,'Portugues')]
 
+class Ideoma(models.Model):
+    nombre = models.CharField(max_length=200)
+    def __unicode__(self):
+        return self.nombre
+
 class Libro(models.Model):
     ''' clase que contendra los libros de las
         distintas organizaciones que utilicen
         esta app
     '''
     titulo = models.CharField(max_length=200)
-    idioma = models.IntegerField('Idioma del Documento', choices=CHOICE_IDIOMA)
+    idioma = models.ForeignKey(Ideoma, verbose_name='Idioma del Documento', null=True, blank=True)
     autor = models.CharField(max_length=200)
     organizacion = models.ForeignKey(Organizacion)
     codigo = models.CharField(max_length=200, null=True, blank=True)
@@ -100,10 +105,10 @@ class Libro(models.Model):
     disponibilidad = models.ManyToManyField(Disponibilidad, null=True, blank=True)
     edicion = models.CharField(max_length=200, null=True, blank=True)
     tematica = models.ForeignKey(Tematica)
-    fecha_pub = models.DateField('Fecha de publicación', null=True, blank=True)
+    fecha_pub = models.CharField('Fecha de publicación', max_length=200, null=True, blank=True)
     lugar_pub = models.CharField('Lugar de publición', max_length=200, null=True, blank=True)
     editorial = models.ForeignKey(Editorial)
-    pagina = models.IntegerField('Números de paginas', null=True, blank=True)
+    pagina = models.CharField('Números de paginas', max_length=200, null=True, blank=True)
     isbn = models.CharField(max_length=200, null=True, blank=True)
     cantidad = models.IntegerField('No. de copias', null=True, blank=True)
     #descritores = models.CharField(max_length=200, null=True, blank=True, help_text="Agregar los descriptores separados con espacio ejemplo: agua tierra agri")

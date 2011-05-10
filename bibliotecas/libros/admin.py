@@ -27,7 +27,7 @@ class LibroAdmin(admin.ModelAdmin):
     list_display = ('codigo','No_acceso', 'titulo', 'autor', 'resumen', 'tematica')
     list_filter = ['editorial', 'tematica']
     search_fields = ['titulo', 'autor', 'editorial__nombre']
-    date_hierarchy = 'fecha_pub'
+    #date_hierarchy = 'fecha_pub'
     
     class Media:
         js = ['../files/js/tiny_mce/tiny_mce.js',
@@ -39,3 +39,4 @@ admin.site.register(Editorial)
 admin.site.register(TipoDocumento)
 admin.site.register(Organizacion)
 admin.site.register(Disponibilidad)
+admin.site.register(Ideoma)
