@@ -327,13 +327,15 @@ span.book_title{
     font-size: 10px;
     color: #505050;
     font-family: 'Neuton', serif;
-    text-shadow: 4px 4px 4px #aaa;
+    text-shadow: 1px 1px 1px #aaa;
 }
 #resultado .campo_libros {
-    font-size: 12px;
+    font-size: 14px;
     color: #656565;
-    font-weight: bold;
-/*    float: right;*/
+/*    font-weight: bold;*/
+}
+.campo_libros b{
+    color: black;
 }
 
 /*CSS DE LOS ERRORES*/

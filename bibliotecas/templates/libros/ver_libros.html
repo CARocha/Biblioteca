@@ -1,60 +1,82 @@
-{%block content%}
+{% extends "base.html" %}
+
+{%block contenido%}
 <div id="content_lista" >
         <div id="titulo_content_lista">Documento</div>
         <div id="resultado">
             <div class="contenido_detalle">
                 <h1>{{libros.titulo}}</h1>
                 <p>
-                     {% if libros.autor%}
-                    <div class="campo_libros"><b>Autor:</b></div>
-                     <img src="{{MEDIA_URL}}img/autor.png"> {{libros.autor}}<br>
-                    {%endif%}
-                    <div class="campo_libros"><b>Organización:</b></div>
-                    <img src="{{MEDIA_URL}}img/organizacion.png"> {{libros.organizacion}}<br>
                     {% if libros.codigo%}
-                    <div class="campo_libros"><b>Codigo:</b></div>
-                    <img src="{{MEDIA_URL}}img/codigo.png"> {{libros.codigo}}<br>
+                    <div class="campo_libros"><b>Codigo:</b>
+                     &nbsp;&nbsp;&nbsp;{{libros.codigo}}--{{libros.No_acceso}}<br></div>
                     {%endif%}
+                    
+                     {% if libros.autor%}
+                    <div class="campo_libros"><b>Autor:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.autor}}<br></div>
+                    {%endif%}
+                    
                     {% if libros.edicion%}
-                    <div class="campo_libros"><b>Edición:</b></div>
-                    <img src="{{MEDIA_URL}}img/edicion.png"> {{libros.edicion}}<br>
+                    <div class="campo_libros"><b>Edición:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.edicion}}<br></div>
                     {%endif%}
-                    {% if libros.tematica%}
-                    <div class="campo_libros"><b>Tematica:</b></div>
-                    <img src="{{MEDIA_URL}}img/tematica.png"> {{libros.tematica}}<br>
-                    {%endif%}
-                    {% if libros.fecha_pub%}
-                    <div class="campo_libros"><b>Fecha de Publicación:</b></div>
-                    <img src="{{MEDIA_URL}}img/fecha_pub.png"> {{libros.fecha_pub}}<br>
-                    {%endif%}
-                    {% if libros.lugar_pub%}
-                    <div class="campo_libros"><b>Lugar de Publicación:</b></div>
-                    <img src="{{MEDIA_URL}}img/lugar_pub.png">{{libros.lugar_pub}}<br>
-                    {%endif%}
-                    {% if libros.editorial%}
-                    <div class="campo_libros"><b>Editorial:</b></div>
-                    <img src="{{MEDIA_URL}}img/editorial.png"> {{libros.editorial}}<br>
-                    {%endif%}
+                    
                     {% if libros.pagina%}
-                    <div class="campo_libros"><b>Número de paginas:</b></div>
-                    <img src="{{MEDIA_URL}}img/paginas.png">  {{libros.pagina}}<br>
+                    <div class="campo_libros"><b>Número de paginas:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.pagina}}<br></div>
                     {%endif%}
+                    
                     {% if libros.isbn%}
-                    <div class="campo_libros"><b>isbn:</b></div>
-                    <img src="{{MEDIA_URL}}img/isbn.png"> {{libros.isbn}}<br>
+                    <div class="campo_libros"><b>ISBN:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.isbn}}<br></div>
                     {%endif%}
-                    {% if libros.cantidad%}
-                    <div class="campo_libros"><b>Cantidad disponible fisicamente:</b></div>
-                    <img src="{{MEDIA_URL}}img/cantidad.png"> {{libros.cantidad}}<br>
+                    
+                    {% if libros.descriptores%}
+                    <div class="campo_libros"><b>ISBN:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.descriptores}}<br></div>
                     {%endif%}
-                    {% if libros.nota_descriptiva%}
-                    <div class="campo_libros"><b>Nota descriptiva:</b></div>
-                    <img src="{{MEDIA_URL}}img/nota_descriptiva.png"> {{libros.nota_descriptiva|safe}}<br>
-                    {%endif%}
+                    
                     {% if libros.resumen%}
-                    <div class="campo_libros"><b>Resumen:</b></div>
-                    <img src="{{MEDIA_URL}}img/descriptores.png"> {{libros.resumen|safe}}<br>
+                    <div class="campo_libros"><b>Resumen:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.resumen|safe}}<br></div>
                     {%endif%}
+                    
+                    {% if libros.organizacion%}
+                    <div class="campo_libros"><b>Organización:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.organizacion}}<br></div>
+                    {%endif%}
+                    
+                    {% if libros.tematica%}
+                    <div class="campo_libros"><b>Tematica:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.tematica}}<br></div>
+                    {%endif%}
+                    
+                    {% if libros.fecha_pub%}
+                    <div class="campo_libros"><b>Fecha de Publicación:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.fecha_pub}}<br></div>
+                    {%endif%}
+                    
+                    {% if libros.lugar_pub%}
+                    <div class="campo_libros"><b>Lugar de Publicación:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.lugar_pub}}<br></div>
+                    {%endif%}
+                    
+                    {% if libros.editorial%}
+                    <div class="campo_libros"><b>Editorial:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.editorial}}<br></div>
+                    {%endif%}
+                    
+                    {% if libros.cantidad%}
+                    <div class="campo_libros"><b>Cantidad disponible fisicamente:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.cantidad}}<br></div>
+                    {%endif%}
+                    
+                    {% if libros.nota_descriptiva%}
+                    <div class="campo_libros"><b>Nota descriptiva:</b>
+                    &nbsp;&nbsp;&nbsp;{{libros.nota_descriptiva|safe}}<br></div>
+                    {%endif%}
+                    
                     {% if libros.adjuntos %}
                     <div class="campo_libros"><b>Descargar:</b></div> 
                     {% for adjunto in libros.adjuntos.all %}

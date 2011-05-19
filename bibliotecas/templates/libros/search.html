@@ -42,27 +42,29 @@
         </div>
         <div class="busqueda_datos_libro">
             <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/">{{libros.titulo}}</a><br>
+         <ul>
             {% if libros.titulo %}
-            <b>Author:</b> {{ libros.autor }}
+               <li><b>Author:</b> {{ libros.autor }}</li>
             {% endif %}
             {% if libros.codigo %}
-            <b>Código:</b> {{ libros.codigo }}
+               <li><b>Código:</b> {{ libros.codigo }}</li>
             {% endif %}
             {% if libros.editorial %}
-            <b>Editorial:</b> {{ libros.editorial }}
+               <li><b>Editorial:</b> {{ libros.editorial }}</li>
             {% endif %}
             {% if libros.lugar_pub %}
-            <b>Lugar:</b> {{ libros.lugar_pub }}
+               <li><b>Lugar:</b> {{ libros.lugar_pub }}</li> 
             {% endif %}
             {% if libros.fecha_pub %}
-            <b>Fecha:</b> {{ libros.fecha_pub }}
+               <li><b>Fecha:</b> {{ libros.fecha_pub }}</li>
             {% endif %}
              {% if libros.organizacion %}
-            <b>Organización:</b> {{ libros.organizacion }}
+               <li><b>Organización:</b> {{ libros.organizacion }}</li>
             {% endif %}
             {% if libros.pagina %}
-            <b>No. de paginas:</b> {{ libros.pagina }}
+               <li><b>No. de paginas:</b> {{ libros.pagina }}</li>
             {% endif %}
+        </ul>
         </div>
         <div class="busqueda_libro_portada">
         {% if libros.portada %}
