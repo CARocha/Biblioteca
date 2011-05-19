@@ -41,7 +41,7 @@
            
         </div>
         <div class="busqueda_datos_libro">
-            <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/" rel="facebox">{{libros.titulo}}</a><br>
+            <a class="busqueda_titulo_libro" href="/libros/ver/{{libros.id}}/">{{libros.titulo}}</a><br>
             {% if libros.titulo %}
             <b>Author:</b> {{ libros.autor }}
             {% endif %}
@@ -59,6 +59,9 @@
             {% endif %}
              {% if libros.organizacion %}
             <b>Organización:</b> {{ libros.organizacion }}
+            {% endif %}
+            {% if libros.pagina %}
+            <b>No. de paginas:</b> {{ libros.pagina }}
             {% endif %}
         </div>
         <div class="busqueda_libro_portada">
