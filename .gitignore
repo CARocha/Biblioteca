@@ -14,3 +14,5 @@ nbproject/
 .DS_Store
 settings_local.py
 *.db
+*.csv
+/media/*.*
